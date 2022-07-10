@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Political News</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="bg-success p-2 text-dark bg-opacity-10">
+
+    <nav class="navbar bg-light">
+  <div class="container-fluid">
+      <b>
+    <a class="navbar-brand" href="home">Home</a>
+       <a class="navbar-brand" href="index">Index</a>
+      </b>
+  </div>
+</nav>
+
+    <div class="sticky-top bg-light">
+        <div class="container-md">
+        <b><center>Political News</center></b>
+        </div>
+    </div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for value in politicsdata.data %}
+
+  <div class="col-md-3">
+    <div class="card h-100">
+      <img src="{{ value.imageUrl }}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ value.title }}</h5>
+        <p class="card-text">{{ value.content }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ value.date }}</small>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+</body>
+</html>
